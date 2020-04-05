@@ -17,6 +17,15 @@ public class main {
 
         datos = new ImplementacionMySql();
         ejecutar(datos, "insertar");
+        
+        
+        
+        datos = new ImplementacionOracle();
+        ejecutar(datos, "insertar");
+        ejecutar(datos, "listar");
+        
+        
+        
 
     }
 
