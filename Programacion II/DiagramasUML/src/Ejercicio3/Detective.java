@@ -22,7 +22,13 @@ public class Detective extends Persona {
     }
 
     public boolean invetigarMafioso(Mafioso mafioso) {
-        return true;
+
+        if (mafioso.investigar() == true) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }
