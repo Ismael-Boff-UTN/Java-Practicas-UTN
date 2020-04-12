@@ -1,11 +1,10 @@
 package Ejercicio1;
 
-
 /**
  *
  * @author SkylakeFrost
  */
-public class ImplementacionOracle implements AccesoDatos {
+public class ImplementacionOracle extends AccesoDatos {
 
     @Override
     public void insertar() {

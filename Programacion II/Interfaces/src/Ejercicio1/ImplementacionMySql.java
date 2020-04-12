@@ -5,7 +5,7 @@ package Ejercicio1;
  *
  * @author SkylakeFrost
  */
-public class ImplementacionMySql implements AccesoDatos {
+public class ImplementacionMySql extends AccesoDatos {
 
     @Override
     public void insertar() {

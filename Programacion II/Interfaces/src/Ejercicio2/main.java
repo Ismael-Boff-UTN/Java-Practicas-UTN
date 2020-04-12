@@ -15,6 +15,7 @@ public class main {
     }
 
     public static void realizarOperacion() {
+
         System.out.println("Ingrese 1er Valor : ");
         double v1 = sc.nextDouble();
         System.out.println("Ingrese 2do Valor : ");
@@ -29,6 +30,7 @@ public class main {
         }
         if (eleccion.equals("-")) {
             OperacionesMatematicas op = new Resta();
+
             System.out.println("Resultado Resta : " + op.operacion(v1, v2));
         }
         if (eleccion.equals("*")) {
