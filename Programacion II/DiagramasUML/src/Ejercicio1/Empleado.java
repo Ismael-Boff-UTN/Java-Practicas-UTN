@@ -22,6 +22,9 @@ public class Empleado extends Persona {
         this.nro_Legajo = nro_Legajo;
     }
 
+    public Empleado() {
+    }
+
     public Date getFecha_ingreso() {
         return fecha_ingreso;
     }

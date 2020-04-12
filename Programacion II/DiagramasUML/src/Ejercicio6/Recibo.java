@@ -6,7 +6,7 @@ package Ejercicio6;
  */
 public class Recibo extends Comprobante {
 
-    private Proveedor proveedor;
+    private Proveedor proveedor = new Proveedor();
     private float total;
     private String detalle;
 

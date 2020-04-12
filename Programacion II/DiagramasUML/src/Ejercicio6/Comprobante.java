@@ -8,7 +8,7 @@ public class Comprobante {
 
     protected char tipo;
     protected int numero;
-    protected Fecha fecha;
+    protected Fecha fecha = new Fecha();
 
     public Comprobante(char tipo, int numero, Fecha fecha) {
         this.tipo = tipo;

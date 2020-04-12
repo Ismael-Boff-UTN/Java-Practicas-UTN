@@ -8,8 +8,8 @@ import java.util.Date;
  */
 public class Factura {
 
-    private Empleado emp;
-    private Cliente clie;
+    private Empleado emp = new Empleado();
+    private Cliente clie = new Cliente();
     private int nro_Factura;
     private Date fecha;
     private double monto;
@@ -66,7 +66,5 @@ public class Factura {
     public String toString() {
         return "Factura{" + "emp=" + emp + ", clie=" + clie + ", nro_Factura=" + nro_Factura + ", fecha=" + fecha + ", monto=" + monto + '}';
     }
-    
-    
 
 }
