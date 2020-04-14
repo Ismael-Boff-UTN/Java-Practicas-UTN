@@ -7,17 +7,18 @@ package Ejercicio4;
 public class main {
 
     public static void main(String[] args) {
+        
         Usuario user = new Usuario(1, "usu66", "arroz8", "Juancito", "Lobos", 33);
 
         user.agregarContacto(new Contacto(new ContactoTipo(1, "personal"), "Ismael", "Boff", 23));
         user.getContactos().get(0).addDomicilios(new ContactoDomicilio(1, "Mendoza"));
         user.getContactos().get(0).addTelefonos(new ContactoTelefono(1, "261", "33243123"));
 
-        user.agregarContacto(new Contacto(new ContactoTipo(2, "escolar"), "Jose", "L", 22));
+        user.agregarContacto(new Contacto(new ContactoTipo(2, "escolar"), "Jose", "Luis", 22));
         user.getContactos().get(1).addDomicilios(new ContactoDomicilio(1, "SJ"));
         user.getContactos().get(1).addTelefonos(new ContactoTelefono(1, "261", "3322343123"));
 
-        user.agregarContacto(new Contacto(new ContactoTipo(3, "negocios"), "Homero", "A", 21));
+        user.agregarContacto(new Contacto(new ContactoTipo(3, "negocios"), "Homero", "Simpson", 21));
         user.getContactos().get(2).addDomicilios(new ContactoDomicilio(1, "Neuquen"));
         user.getContactos().get(2).addTelefonos(new ContactoTelefono(1, "261", "33323243123"));
 

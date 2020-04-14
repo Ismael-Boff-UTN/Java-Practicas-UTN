@@ -10,5 +10,8 @@ package Ejercicio7;
  * @author SkylakeFrost
  */
 public class Barco extends Vehiculo{
+
+    public Barco() {
+    }
     
 }

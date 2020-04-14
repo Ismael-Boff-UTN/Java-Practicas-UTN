@@ -11,4 +11,7 @@ package Ejercicio7;
  */
 public class BarcoAVela extends Barco {
 
+    public BarcoAVela() {
+    }
+
 }
