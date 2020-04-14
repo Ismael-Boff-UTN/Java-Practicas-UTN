@@ -7,21 +7,19 @@ package Ejercicio4;
 public class main {
 
     public static void main(String[] args) {
-
-        Contacto contacto1 = new Contacto(new ContactoTipo(1, "personal"), "Ismael", "Boff", 23);
-        contacto1.addDomicilios(new ContactoDomicilio(1, "Mendoza"));
-        contacto1.addTelefonos(new ContactoTelefono(1, "261", "33243123"));
-        Contacto contacto2 = new Contacto(new ContactoTipo(2, "escolar"), "Jose", "L", 22);
-        contacto2.addDomicilios(new ContactoDomicilio(1, "SJ"));
-        contacto2.addTelefonos(new ContactoTelefono(1, "261", "3322343123"));
-        Contacto contacto3 = new Contacto(new ContactoTipo(3, "negocios"), "Homero", "A", 21);
-        contacto3.addDomicilios(new ContactoDomicilio(1, "Neuquen"));
-        contacto3.addTelefonos(new ContactoTelefono(1, "261", "33323243123"));
-
         Usuario user = new Usuario(1, "usu66", "arroz8", "Juancito", "Lobos", 33);
-        user.agregarContacto(contacto1);
-        user.agregarContacto(contacto2);
-        user.agregarContacto(contacto3);
+
+        user.agregarContacto(new Contacto(new ContactoTipo(1, "personal"), "Ismael", "Boff", 23));
+        user.getContactos().get(0).addDomicilios(new ContactoDomicilio(1, "Mendoza"));
+        user.getContactos().get(0).addTelefonos(new ContactoTelefono(1, "261", "33243123"));
+
+        user.agregarContacto(new Contacto(new ContactoTipo(2, "escolar"), "Jose", "L", 22));
+        user.getContactos().get(1).addDomicilios(new ContactoDomicilio(1, "SJ"));
+        user.getContactos().get(1).addTelefonos(new ContactoTelefono(1, "261", "3322343123"));
+
+        user.agregarContacto(new Contacto(new ContactoTipo(3, "negocios"), "Homero", "A", 21));
+        user.getContactos().get(2).addDomicilios(new ContactoDomicilio(1, "Neuquen"));
+        user.getContactos().get(2).addTelefonos(new ContactoTelefono(1, "261", "33323243123"));
 
         System.out.println("--------Contactos De " + user.getNombre() + " --------");
         for (int i = 0; i < user.getContactos().size(); i++) {
