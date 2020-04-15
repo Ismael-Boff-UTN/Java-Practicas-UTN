@@ -14,8 +14,10 @@ public class Factura {
     private Date fecha;
     private double monto;
 
+    /*Los Atributos que tienen una composicion, por ej. Cliente, no se agregan al constructor
+    Ya que se crean al tener su "new"*/
     public Factura(int nro_Factura, Date fecha, double monto) {
-       
+
         this.nro_Factura = nro_Factura;
         this.fecha = fecha;
         this.monto = monto;

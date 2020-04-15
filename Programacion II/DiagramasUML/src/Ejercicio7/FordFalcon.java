@@ -11,4 +11,19 @@ package Ejercicio7;
  */
 public class FordFalcon extends Auto {
 
+    private String patente;
+
+    public FordFalcon(String patente, double velocidadPromedio, int velocidadMinima, Rueda rueda) {
+        super(velocidadPromedio, velocidadMinima, rueda);
+        this.patente = patente;
+    }
+
+    public String getPatente() {
+        return patente;
+    }
+
+    public void setPatente(String patente) {
+        this.patente = patente;
+    }
+
 }

@@ -7,11 +7,9 @@ package Ejercicio5;
 public class main {
 
     public static void main(String[] args) {
-
-        Factura factura = new Factura(112, 'A', 4346546, new Fecha(13, 3, 2020));
-
-        factura.setCliente(new Cliente(1, "Comercial"));
-        factura.setProducto(new Producto(12, "Cereal", 145));
+        //Monto, Cliente, Producto, Tipo Factura, Codigo, Fecha
+        Factura factura = new Factura(232, new Cliente(1, "Comercial"), 
+        new Producto(12, "Cereal", 145), 'A', 2323, new Fecha(12, 10, 2020));
 
         System.out.println("----------------------------------------------");
 

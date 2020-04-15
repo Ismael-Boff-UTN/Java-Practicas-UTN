@@ -14,14 +14,10 @@ public class Contacto extends Persona {
     private List<ContactoDomicilio> domicilios = new ArrayList<>();
     private List<ContactoTelefono> telefonos = new ArrayList<>();
 
-    
-
     public Contacto(ContactoTipo tipo, String nombre, String apellido, int idPersona) {
         super(nombre, apellido, idPersona);
         this.tipo = tipo;
     }
-    
-    
 
     public int getIdContacto() {
         return idContacto;

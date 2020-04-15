@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ejercicio7;
 
 /**
@@ -10,5 +5,29 @@ package Ejercicio7;
  * @author SkylakeFrost
  */
 public class Rueda {
-    
+
+    private String tipo;
+    private String ventajas;
+
+    public Rueda(String tipo, String ventajas) {
+        this.tipo = tipo;
+        this.ventajas = ventajas;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getVentajas() {
+        return ventajas;
+    }
+
+    public void setVentajas(String ventajas) {
+        this.ventajas = ventajas;
+    }
+
 }

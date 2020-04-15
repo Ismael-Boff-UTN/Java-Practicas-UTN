@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ejercicio7;
 
 /**
@@ -12,5 +7,17 @@ package Ejercicio7;
 public class Auto extends Vehiculo {
 
     public int numeroRuedas = 4;
+
+    public Auto(double velocidadPromedio, int velocidadMinima, Rueda rueda) {
+        super(velocidadPromedio, velocidadMinima, rueda);
+    }
+
+    public int getNumeroRuedas() {
+        return numeroRuedas;
+    }
+
+    public void setNumeroRuedas(int numeroRuedas) {
+        this.numeroRuedas = numeroRuedas;
+    }
 
 }

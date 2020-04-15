@@ -12,22 +12,22 @@ public class Bicicleta extends Vehiculo {
 
     @Override
     public double precio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 400.0;
     }
 
     @Override
     public double velocidad_Maxima() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 172.0;
     }
 
     @Override
     public int getRuedas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.ruedas;
     }
 
     @Override
     public void setRuedas(int ruedas) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.ruedas = ruedas;
     }
 
 }

@@ -7,7 +7,7 @@ package Ejercicio4;
 public class main {
 
     public static void main(String[] args) {
-        
+
         Usuario user = new Usuario(1, "usu66", "arroz8", "Juancito", "Lobos", 33);
 
         user.agregarContacto(new Contacto(new ContactoTipo(1, "personal"), "Ismael", "Boff", 23));

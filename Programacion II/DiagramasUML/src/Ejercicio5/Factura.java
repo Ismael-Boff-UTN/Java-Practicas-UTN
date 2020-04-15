@@ -10,9 +10,11 @@ public class Factura extends Comprobante {
     private Cliente cliente;
     private Producto producto;
 
-    public Factura(float total, char tipo, int numero, Fecha fecha) {
+    public Factura(float total, Cliente cliente, Producto producto, char tipo, int numero, Fecha fecha) {
         super(tipo, numero, fecha);
         this.total = total;
+        this.cliente = cliente;
+        this.producto = producto;
     }
 
     public Factura(float total) {

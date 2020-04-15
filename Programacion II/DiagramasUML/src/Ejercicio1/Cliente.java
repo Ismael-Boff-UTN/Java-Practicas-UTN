@@ -8,6 +8,7 @@ public class Cliente extends Persona implements Estado_Cuenta {
 
     public Tarjeta_de_Credito credit_Car;
 
+    /*Aca como es agregacion, si puede ir el atributo, tajeta de credito, en el constructor*/
     public Cliente(int dni, String nombre, String apellido, long cuit, Tarjeta_de_Credito credit_Car) {
         super(dni, nombre, apellido, cuit);
         this.credit_Car = credit_Car;

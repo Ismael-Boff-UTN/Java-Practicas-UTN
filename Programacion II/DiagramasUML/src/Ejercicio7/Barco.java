@@ -1,17 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ejercicio7;
 
 /**
  *
  * @author SkylakeFrost
  */
-public class Barco extends Vehiculo{
+public class Barco extends Vehiculo {
 
-    public Barco() {
+    private String tipoBarco;
+
+    public Barco(double velocidadPromedio, int velocidadMinima, Rueda rueda) {
+        super(velocidadPromedio, velocidadMinima, rueda);
+        
     }
-    
+
+    public String getTipoBarco() {
+        return tipoBarco;
+    }
+
+    public void setTipoBarco(String tipoBarco) {
+        this.tipoBarco = tipoBarco;
+    }
+
 }

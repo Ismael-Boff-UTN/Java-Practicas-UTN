@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ejercicio7;
 
 /**
@@ -11,7 +6,18 @@ package Ejercicio7;
  */
 public class BarcoAVela extends Barco {
 
-    public BarcoAVela() {
+    private int numVeleas;
+
+    public BarcoAVela(double velocidadPromedio, int velocidadMinima, Rueda rueda) {
+        super(velocidadPromedio, velocidadMinima, rueda);
+    }
+
+    public int getNumVeleas() {
+        return numVeleas;
+    }
+
+    public void setNumVeleas(int numVeleas) {
+        this.numVeleas = numVeleas;
     }
 
 }
