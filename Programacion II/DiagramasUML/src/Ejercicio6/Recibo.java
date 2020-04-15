@@ -10,9 +10,9 @@ public class Recibo extends Comprobante {
     private float total;
     private String detalle;
 
-    public Recibo(Proveedor proveedor, float total, String detalle, char tipo, int numero, Fecha fecha) {
+    public Recibo(float total, String detalle, char tipo, int numero, Fecha fecha) {
         super(tipo, numero, fecha);
-        this.proveedor = proveedor;
+
         this.total = total;
         this.detalle = detalle;
     }

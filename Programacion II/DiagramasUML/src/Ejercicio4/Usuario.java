@@ -46,7 +46,7 @@ public class Usuario extends Persona {
     }
 
     public void agregarContacto(Contacto contacto) {
-        contactos.add(contacto);
+        this.contactos.add(contacto);
     }
 
     public List<Contacto> getContactos() {

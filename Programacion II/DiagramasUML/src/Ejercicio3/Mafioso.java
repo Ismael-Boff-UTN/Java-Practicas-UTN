@@ -35,13 +35,13 @@ public class Mafioso extends Persona implements Investigable {
     }
 
     public boolean quitarLugar(Lugar lugar) {
-        lugaresFrecuentes.remove(lugar);
-        return true;
+
+        return lugaresFrecuentes.remove(lugar);
     }
 
     @Override
     public boolean investigar() {
-       return true;
+        return true;
     }
 
 }

@@ -8,6 +8,7 @@ public class main {
 
     public static void main(String[] args) {
         Persona persona = new Persona();
+
         persona.agregarPerfil(new Perfil(2, "Mafioso"));
         persona.agregarPerfil(new Perfil(2, "Detective"));
         persona.agregarPerfil(new Perfil(2, "Civil"));

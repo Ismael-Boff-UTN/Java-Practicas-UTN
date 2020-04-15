@@ -1,4 +1,3 @@
-
 package Ejercicio2;
 
 /**
@@ -10,10 +9,6 @@ public class Moto extends Vehiculo implements Motor {
     public Moto(int ruedas, String duenio) {
         super(ruedas, duenio);
     }
-
-    
-    
-   
 
     @Override
     public double precio() {
@@ -40,6 +35,4 @@ public class Moto extends Vehiculo implements Motor {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
-    
 }

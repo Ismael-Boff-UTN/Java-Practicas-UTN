@@ -14,9 +14,8 @@ public class Factura {
     private Date fecha;
     private double monto;
 
-    public Factura(Empleado emp, Cliente clie, int nro_Factura, Date fecha, double monto) {
-        this.emp = emp;
-        this.clie = clie;
+    public Factura(int nro_Factura, Date fecha, double monto) {
+       
         this.nro_Factura = nro_Factura;
         this.fecha = fecha;
         this.monto = monto;

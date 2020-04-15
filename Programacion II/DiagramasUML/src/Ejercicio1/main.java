@@ -17,10 +17,19 @@ public class main {
         Proveedor prov = new Proveedor("Musimundo");
 
         //Se Crea Una Factura                           //Monto o Importe
-        Factura f1 = new Factura(new Empleado(d1, 234322, 234233, "Jose", "Gomez", 1),
-                new Cliente(23432323, "Camila", "Gonzales", 3221232,
-                        new Tarjeta_de_Credito(d1, 10000)),
-                23131, d1, 53000);
+        Factura f1 = new Factura(23131, d1, 53000);
+
+        f1.getClie().setCuit(2212313);
+        f1.getClie().setNombre("Josefina");
+        f1.getClie().setApellido("Vargas");
+        f1.getClie().setCredit_Car(new Tarjeta_de_Credito(d1, 1232432));
+        f1.getClie().setDni(12331323);
+
+        f1.getEmp().setNombre("Ismael");
+        f1.getEmp().setApellido("Lopez");
+        f1.getEmp().setCuit(12313);
+        f1.getEmp().setNro_Legajo(12);
+        f1.getEmp().setDni(21312313);
 
         System.out.println("-----------EMPLEADO------------");
         System.out.println("Fecha De Ingreso : " + f1.getEmp().getFecha_ingreso());
