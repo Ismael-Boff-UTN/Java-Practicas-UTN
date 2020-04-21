@@ -20,5 +20,6 @@ public class main {
         System.out.println("Tipo De Recibo : " + recibo.getTipo());
         System.out.println("Codigo Recibo : " + recibo.getNumero());
         System.out.println("--------------------------------------");
+
     }
 }

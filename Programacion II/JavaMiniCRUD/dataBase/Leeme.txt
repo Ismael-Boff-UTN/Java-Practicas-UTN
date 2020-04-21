@@ -1,0 +1,10 @@
+Esta Base de datos es para Workbench 8.0 (8.0.19)
+
+Para crear de forma manual, se debe crear una base de datos
+llamada "registros" con una tabla "personas" esta tabla contiene los campos
+id_persona como primary key, auto incremental de tipo INT(11)
+
+nombre
+apellido    <----- Todo de tipo VARCHAR(45)
+dni
+cuit

@@ -27,19 +27,17 @@ public class Proveedor extends Persona implements Estado_Cuenta {
 
     @Override
     public long getCuit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return cuit;
     }
 
     @Override
     public void setCuit(long cuit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.cuit = cuit;
     }
 
     @Override
     public boolean problemaVerazCodeme(Tarjeta_de_Credito tarjeta, Factura factura) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
 
 }

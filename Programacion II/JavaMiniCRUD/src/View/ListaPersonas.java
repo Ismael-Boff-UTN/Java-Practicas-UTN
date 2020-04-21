@@ -12,6 +12,8 @@ import javax.swing.JTextField;
  */
 public class ListaPersonas extends javax.swing.JFrame {
 
+    private JPopupMenu popMenu = new JPopupMenu();
+
     public JTable getTblPersonas() {
         return tblPersonas;
     }
@@ -68,11 +70,31 @@ public class ListaPersonas extends javax.swing.JFrame {
         this.txtNombre = txtNombre;
     }
 
+    public JPopupMenu getPopMenu() {
+        return popMenu;
+    }
+
+    public void setPopMenu(JPopupMenu popMenu) {
+        this.popMenu = popMenu;
+    }
+
+    public JButton getBtnEditar() {
+        return btnEditar;
+    }
+
+    public void setBtnEditar(JButton btnEditar) {
+        this.btnEditar = btnEditar;
+    }
+
+   
+    
+
     /**
      * Creates new form ListaPersonas
      */
     public ListaPersonas() {
         initComponents();
+        popMenu(popMenu);
 
     }
 
@@ -98,11 +120,13 @@ public class ListaPersonas extends javax.swing.JFrame {
         txtDni = new javax.swing.JTextField();
         txtCuil = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
-        Editar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 153, 51));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista De Personas"));
+        jPanel1.setForeground(new java.awt.Color(0, 153, 0));
 
         tblPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,6 +136,11 @@ public class ListaPersonas extends javax.swing.JFrame {
                 "ID", "Nombre", "Apellido", "DNI", "CUIL"
             }
         ));
+        tblPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblPersonasMouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblPersonas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -149,7 +178,7 @@ public class ListaPersonas extends javax.swing.JFrame {
 
         btnEliminar.setText("Eliminar");
 
-        Editar.setText("Editar");
+        btnEditar.setText("Editar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,12 +202,11 @@ public class ListaPersonas extends javax.swing.JFrame {
                     .addComponent(txtDni)
                     .addComponent(txtCuil))
                 .addGap(113, 113, 113)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAgregar)
-                        .addGap(42, 42, 42)
-                        .addComponent(btnEliminar))
-                    .addComponent(Editar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(btnEliminar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -196,7 +224,7 @@ public class ListaPersonas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Editar))
+                    .addComponent(btnEditar))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -214,6 +242,10 @@ public class ListaPersonas extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void tblPersonasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPersonasMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblPersonasMouseReleased
 
     /**
      * @param args the command line arguments
@@ -249,17 +281,17 @@ public class ListaPersonas extends javax.swing.JFrame {
             }
         });
     }
-    public void popMenu() {
-        JPopupMenu popMenu = new JPopupMenu();
-        JMenuItem menuItem = new JMenuItem("Eliminar");
 
-        popMenu.add(menuItem);
-        tblPersonas.add(popMenu);
+    public void popMenu(JPopupMenu popMenu) {
+
+        popMenu.add(new JMenuItem("Eliminar"));
+        popMenu.add(new JMenuItem("Editar"));
+        tblPersonas.setComponentPopupMenu(popMenu);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Editar;
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -1,8 +1,10 @@
 
 import Controller.PersonaControlador;
-import DAO.PersonaDAOImpl;
+import DAO.PersonaDAO;
 import Model.Persona;
+import View.EditarPersona;
 import View.ListaPersonas;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,10 +19,11 @@ public class main {
 
     public static void main(String[] args) {
         Persona persona = new Persona();
-        PersonaDAOImpl crud = new PersonaDAOImpl();
+        PersonaDAO crud = new PersonaDAO();
         ListaPersonas vista = new ListaPersonas();
+        EditarPersona editarPer = new EditarPersona();
 
-        PersonaControlador controlador = new PersonaControlador(persona, crud, vista);
+        PersonaControlador controlador = new PersonaControlador(persona, crud, vista, editarPer);
         controlador.iniciarVista();
 
     }

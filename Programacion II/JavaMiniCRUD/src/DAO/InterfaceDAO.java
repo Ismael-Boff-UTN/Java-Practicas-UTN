@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author SkylakeFrost
  */
-public interface IPersonaDAO {
+public interface InterfaceDAO {
 
     public boolean create(Persona persona);
 
