@@ -9,7 +9,7 @@ public class main {
     public static void main(String[] args) {
 
         Usuario user = new Usuario(1, "usu66", "arroz8", "Juancito", "Lobos", 33);
-
+        
         user.agregarContacto(new Contacto(new ContactoTipo(1, "personal"), "Ismael", "Boff", 23));
         user.getContactos().get(0).addDomicilios(new ContactoDomicilio(1, "Mendoza"));
         user.getContactos().get(0).addTelefonos(new ContactoTelefono(1, "261", "33243123"));

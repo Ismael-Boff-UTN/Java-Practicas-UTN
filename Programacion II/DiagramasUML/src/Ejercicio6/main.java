@@ -8,9 +8,13 @@ public class main {
 
     public static void main(String[] args) {
 
-        Recibo recibo = new Recibo(5000, "venta de articulos", 'B', 1231, new Fecha(10, 11, 2077));
+        Recibo recibo = new Recibo(5000, "venta de articulos", 'B', 1231);
+
         recibo.getProveedor().setCodigo(23112);
         recibo.getProveedor().setRazonSocial("Nose");
+
+        recibo.setFecha(new Fecha(1, 02, 2000));
+
         System.out.println("--------------------------------------");
         System.out.println("Fecha : " + recibo.getFecha().getDia() + "/" + recibo.getFecha().getMes() + "/" + recibo.getFecha().getAnio());
         System.out.println("Proveedor Cod. > " + recibo.getProveedor().getCodigo());

@@ -24,6 +24,7 @@ public class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.foto = foto;
+        
     }
 
     public Persona() {

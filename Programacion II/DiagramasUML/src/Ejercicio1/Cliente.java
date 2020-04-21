@@ -1,30 +1,34 @@
 package Ejercicio1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author SkylakeFrost
  */
 public class Cliente extends Persona implements Estado_Cuenta {
 
-    public Tarjeta_de_Credito credit_Car;
+    private List<Tarjeta_de_Credito> listaTarjetas = new ArrayList<>();
 
     /*Aca como es agregacion, si puede ir el atributo, tajeta de credito, en el constructor*/
-    public Cliente(int dni, String nombre, String apellido, long cuit, Tarjeta_de_Credito credit_Car) {
+    public Cliente(int dni, String nombre, String apellido, long cuit) {
         super(dni, nombre, apellido, cuit);
-        this.credit_Car = credit_Car;
 
     }
 
     public Cliente() {
     }
 
-    public Tarjeta_de_Credito getCredit_Car() {
-        return credit_Car;
+    public List<Tarjeta_de_Credito> getTarjetas() {
+        return listaTarjetas;
     }
 
-    public void setCredit_Car(Tarjeta_de_Credito credit_Car) {
-        this.credit_Car = credit_Car;
+    public void addTarjetas(Tarjeta_de_Credito tarjeta) {
+       listaTarjetas.add(tarjeta);
     }
+
+    
 
     @Override
     public long getCuit() {

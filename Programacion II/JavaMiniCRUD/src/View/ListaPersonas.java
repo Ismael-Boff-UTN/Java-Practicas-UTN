@@ -123,7 +123,6 @@ public class ListaPersonas extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 153, 51));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista De Personas"));
         jPanel1.setForeground(new java.awt.Color(0, 153, 0));

@@ -10,10 +10,10 @@ public class Comprobante {
     protected int numero;
     protected Fecha fecha = new Fecha();
 
-    public Comprobante(char tipo, int numero, Fecha fecha) {
+    public Comprobante(char tipo, int numero) {
         this.tipo = tipo;
         this.numero = numero;
-        this.fecha = fecha;
+
     }
 
     public Comprobante() {
