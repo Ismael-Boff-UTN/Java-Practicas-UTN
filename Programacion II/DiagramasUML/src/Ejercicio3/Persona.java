@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author SkylakeFrost
  */
-public class Persona {
+public abstract class Persona {
 
     private String nombre;
     private String apellido;
@@ -34,6 +34,11 @@ public class Persona {
         perfiles.add(perfil);
     }
 
+    public void agregarPerfil(int tipoPerfil,String descripcion) {
+        Perfil p = new Perfil(tipoPerfil, descripcion);
+        getPerfiles().add(p);
+    }
+    
     public boolean quitarPerfil(int indice) {
         perfiles.remove(indice);
         return true;
