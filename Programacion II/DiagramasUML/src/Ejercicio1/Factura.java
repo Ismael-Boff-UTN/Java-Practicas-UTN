@@ -12,8 +12,8 @@ public class Factura {
     private int nro_Factura;
     private Date fecha;
     private double monto;
-    private Empleado emp = new Empleado(fecha, 0, 0, "sdad", "asda", 0);
-    private Cliente clie = new Cliente(0, "sdad", "sadada", 0);
+    private Empleado emp = new Empleado();
+    private Cliente clie = new Cliente();
 
     /*Los Atributos que tienen una composicion, por ej. Cliente, no se agregan al constructor
     Ya que se crean al tener su "new"*/

@@ -23,6 +23,7 @@ public class PersonaControlador implements ActionListener {
     private EditarPersona vistaEditar;
     DefaultTableModel modelo;
 
+    @SuppressWarnings("LeakingThisInConstructor")
     public PersonaControlador(Persona persona, PersonaDAO crud, ListaPersonas vista, EditarPersona vistaEditarPersona) {
         this.persona = persona;
         this.crud = crud;
@@ -161,14 +162,14 @@ public class PersonaControlador implements ActionListener {
     public void listInTable(JTable table) {
         modelo = (DefaultTableModel) vista.getTblPersonas().getModel();
         List<Persona> lista = crud.read();
-        Object[] persona = new Object[5];
+        Object[] per = new Object[5];
         for (int i = 0; i < lista.size(); i++) {
-            persona[0] = lista.get(i).getId_persona();
-            persona[1] = lista.get(i).getNombre();
-            persona[2] = lista.get(i).getApellido();
-            persona[3] = lista.get(i).getDni();
-            persona[4] = lista.get(i).getCuit();
-            modelo.addRow(persona);
+            per[0] = lista.get(i).getId_persona();
+            per[1] = lista.get(i).getNombre();
+            per[2] = lista.get(i).getApellido();
+            per[3] = lista.get(i).getDni();
+            per[4] = lista.get(i).getCuit();
+            modelo.addRow(per);
         }
         vista.getTblPersonas().setModel(modelo);
 

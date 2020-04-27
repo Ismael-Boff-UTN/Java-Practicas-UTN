@@ -25,6 +25,46 @@ public class MisMetodos {
         return false;
     }
 
+    public static boolean tabularArray2D(String[][] Array2D) {
+        int stringMayor = 0;//Primero Obetenemos El Tamaño De La Mayor Cadena Dentro Del Array
+        for (int i = 0; i < Array2D.length; i++) {
+            for (int j = 0; j < Array2D[0].length; j++) {
+                if (Array2D[i][j].length() > stringMayor) {
+                    stringMayor = Array2D[i][j].length();
+                }
+            }
+        }
+        //Lo Formateamos Teniendo Como Base La Cadena Mas Larga
+        for (int i = 0; i < Array2D.length; i++) {
+            for (int j = 0; j < Array2D[0].length; j++) {
+
+                if (Array2D[i][j] != null) {
+                    //System.out.println("String mayor "+stringMayor);
+                    String value = String.format("%-" + String.valueOf((stringMayor)) + "s", Array2D[i][j]);
+
+                    System.out.print("  " + value + " ");
+                }
+            }
+            if (Array2D[i][0] != null) {
+                System.out.println();
+            }
+        }
+        return false;
+    }
+
+    public static int stringMayor(String[][] Array2D) {
+        int stringMayor = 0;
+        for (int i = 0; i < Array2D.length; i++) {
+            for (int j = 0; j < Array2D[0].length; j++) {
+                if (Array2D[i][j] != null && Array2D[i][j].length() > stringMayor) {
+                    stringMayor = Integer.valueOf(Array2D[i][j]);
+                }
+            }
+        }
+
+        return stringMayor;
+    }
+
     public static double sumaColumnas(String[][] Array2D, int posicionColumna) {
         /*este metodo como su nombre indica, realiza la suma de una columna de un array2D
         le pasamos por parametro el array2D y la columna a sumar, luego, haciendo uso de sout
@@ -298,42 +338,42 @@ public class MisMetodos {
                 case 1:
                     System.out.println("Has seleccionado la opcion 1");
                     System.out.println("----------------------------------------------------------------------------------------------------");
-                    
+
                     break;
                 case 2:
                     System.out.println("Has seleccionado la opcion 2");
                     System.out.println("----------------------------------------------------------------------------------------------------");
-                    
+
                     break;
                 case 3:
                     System.out.println("Has seleccionado la opcion 3");
                     System.out.println("----------------------------------------------------------------------------------------------------");
-                    
+
                     break;
                 case 4:
                     System.out.println("Has seleccionado la opcion 4");
                     System.out.println("----------------------------------------------------------------------------------------------------");
-                   
+
                     break;
                 case 5:
                     System.out.println("Has seleccionado la opcion 5");
                     System.out.println("----------------------------------------------------------------------------------------------------");
-                    
+
                     break;
                 case 6:
                     System.out.println("Has seleccionado la opcion 7");
                     System.out.println("----------------------------------------------------------------------------------------------------");
-                   
+
                     break;
                 case 7:
                     System.out.println("Has seleccionado la opcion 8");
                     System.out.println("----------------------------------------------------------------------------------------------------");
-                  
+
                     break;
                 case 8:
                     System.out.println("Has seleccionado la opcion 9");
                     System.out.println("----------------------------------------------------------------------------------------------------");
-                    
+
                     break;
                 case 9:
                     System.out.println("Finalizado...Adios!");

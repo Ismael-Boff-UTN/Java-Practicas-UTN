@@ -8,18 +8,22 @@ public class main {
 
     public static void main(String[] args) {
         Persona persona = new Persona() {
-            
+
         };
 
+       
         persona.agregarPerfil(new Perfil(2, "Mafioso"));
         persona.agregarPerfil(new Perfil(2, "Detective"));
+
         persona.agregarPerfil(new Perfil(2, "Civil"));
-        persona.agregarPerfil(1, "asdd");
+        persona.agregarPerfil(1, "Civil");
+
         persona.getComunicacion().add(new MedioDeComunicacion("lo que usa para comunicarse", new TipoMedio("Telefono")));
         persona.getComunicacion().add(new MedioDeComunicacion("lo que usa para comunicarse", new TipoMedio("Internet")));
 
         //Creamos un mafioso
         Mafioso maf = new Mafioso("Tony El Gordo", "Desconocido", new Foto("c:/mafioso.jpg", "tonyelgordo.jpg", 123));
+        
 
         //Creamos al detective
         Detective det = new Detective("Homero", "Jay", new Foto("c:/image.jpg", "sherlock.jpg", 123), "23123123");
@@ -48,9 +52,6 @@ public class main {
             System.out.println("Direccion - Ubicacion : " + maf.getLugaresFrecuentes().get(i).getDireccion().getUbicacion());
             System.out.println("Direccion - Calle : " + maf.getLugaresFrecuentes().get(i).getDireccion().getCalle());
         }
-        
-        
-       
 
     }
 

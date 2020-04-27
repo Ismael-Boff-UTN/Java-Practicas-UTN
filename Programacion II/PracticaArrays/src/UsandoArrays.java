@@ -1,5 +1,4 @@
 
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -26,23 +25,16 @@ un arreglo y determinar cuántas veces está repetido el mayor.
      */
     public static Scanner sc = new Scanner(System.in);
 
+    public static int[] arrayNumeros = new int[10];
+
     public static void main(String[] args) {
 
-        int[] arrayNumeros = new int[10];
-
-        System.out.println("El Mayor Valor Esta En La Posición : " + mayorNumero(cargarArray(arrayNumeros)));
-        System.out.println("------------------------------------");
-        //System.out.println("El Mayor Valor Primo Es : " + mayorNumeroPrimo(cargarArray(arrayNumeros)));
-        System.out.println("------------------------------------");
-        //tabularArray1D("Numeros Primos Random Entre 100 y 300 : ", cargarPrimosRandom(arrayNumeros));
-        System.out.println("------------------------------------");
-        //System.out.println(" " + finalizaEnDigito4(cargarArray(arrayNumeros)));
-        System.out.println("------------------------------------");
-        //System.out.println(mayorNumeroRepetido(cargarArray(arrayNumeros)));
+        MenuOpciones();
 
     }
 
     public static int[] cargarArray(int[] array) {
+
         System.out.println("Ingrese 10 Numeros Enteros Para El Array");
         for (int i = 0; i < array.length; i++) {
             System.out.println("Ingrese El " + (i + 1) + " Valor : ");
@@ -54,6 +46,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
     }
 
+    //Punto 3
     public static int[] cargarPrimosRandom(int array[]) {
         int cargados = 0;
 
@@ -73,6 +66,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
         return array;
     }
 
+    //Punto 1
     public static int mayorNumero(int array[]) {
 
         int numMayor = 0;
@@ -87,6 +81,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
         return pos;
     }
 
+    //Punto 2
     public static int mayorNumeroPrimo(int array[]) {
 
         int numeroMayorPrimo = 0;
@@ -106,6 +101,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
     }
 
+    //Punto 5
     public static String mayorNumeroRepetido(int array[]) {
 
         int numeroMayor = 0;
@@ -126,6 +122,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
         return "El Mayor Numero Es : " + numeroMayor + ", Se Repite : " + seRepite + " Vez/Veces";
     }
 
+    //Punto 4
     public static String finalizaEnDigito4(int array[]) {
         int seRepite = 0;
         String posiciones = "";
@@ -167,5 +164,66 @@ un arreglo y determinar cuántas veces está repetido el mayor.
             }// si no es primo, devuelve false
         }
         return true; // y si lo es, devuelve true
+    }
+
+    public static void MenuOpciones() {
+        boolean salir = false;
+
+        int opcion;
+
+        while (!salir) {
+            System.out.println("---------------------------------------------------------------------------------------------------");
+            System.out.println("1. NumMayor.java");
+            System.out.println("2. NumMayoPrimo.java");
+            System.out.println("3. NumPrimos2.java");
+            System.out.println("4. NumTerminados4.java");
+            System.out.println("5. RepeticionesNumMayor.java");
+
+            System.out.println("6. Salir");
+            System.out.println("----------------------------------------------------------------------------------------------------");
+
+            System.out.println("Escribe una de las opciones");
+            opcion = new Scanner(System.in).nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Has seleccionado la opcion 1");
+                    System.out.println("----------------------------------------------------------------------------------------------------");
+                    System.out.println("Posicion Del Numero Mayor : " + mayorNumero(cargarArray(arrayNumeros)));
+                    break;
+
+                case 2:
+                    System.out.println("Has seleccionado la opcion 2");
+                    System.out.println("----------------------------------------------------------------------------------------------------");
+
+                    System.out.println("Posicion Del Mayor Numero Primo : " + mayorNumeroPrimo(cargarArray(arrayNumeros)));
+                    break;
+                case 3:
+                    System.out.println("Has seleccionado la opcion 3");
+                    System.out.println("----------------------------------------------------------------------------------------------------");
+                    tabularArray1D("Numeros Primos Random Entre 100 y 300: \n", cargarPrimosRandom(arrayNumeros));
+                    break;
+                case 4:
+                    System.out.println("Has seleccionado la opcion 4");
+                    System.out.println("----------------------------------------------------------------------------------------------------");
+
+                    System.out.println(finalizaEnDigito4(cargarArray(arrayNumeros)));
+                    break;
+                case 5:
+                    System.out.println("Has seleccionado la opcion 5");
+                    System.out.println("----------------------------------------------------------------------------------------------------");
+
+                    System.out.println(mayorNumeroRepetido(cargarArray(arrayNumeros)));
+                    break;
+
+                case 6:
+                    System.out.println("Finalizado...Adios!");
+                    System.out.println("----------------------------------------------------------------------------------------------------");
+                    salir = true;
+                    break;
+                default:
+                    System.out.println("Solo números entre 1 y 6");
+            }
+        }
     }
 }

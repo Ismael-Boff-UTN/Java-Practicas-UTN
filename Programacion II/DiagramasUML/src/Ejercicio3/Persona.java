@@ -24,7 +24,7 @@ public abstract class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.foto = foto;
-        
+
     }
 
     public Persona() {
@@ -34,11 +34,11 @@ public abstract class Persona {
         perfiles.add(perfil);
     }
 
-    public void agregarPerfil(int tipoPerfil,String descripcion) {
-        Perfil p = new Perfil(tipoPerfil, descripcion);
-        getPerfiles().add(p);
+    public void agregarPerfil(int tipoPerfil, String descripcion) {
+        Perfil perfil = new Perfil(tipoPerfil, descripcion);
+        perfiles.add(perfil);
     }
-    
+
     public boolean quitarPerfil(int indice) {
         perfiles.remove(indice);
         return true;
@@ -84,6 +84,4 @@ public abstract class Persona {
         this.perfiles = perfiles;
     }
 
-    
-    
 }

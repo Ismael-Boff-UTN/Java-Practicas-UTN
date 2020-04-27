@@ -35,6 +35,13 @@ public class main {
         f1.getEmp().setNro_Legajo(12);
         f1.getEmp().setDni(21312313);
         f1.getEmp().setFecha_ingreso(fecha);
+        
+        f1.getEmp().setNombre("Juan");
+        f1.getEmp().setApellido("Lobos");
+        f1.getEmp().setCuit(12313);
+        f1.getEmp().setNro_Legajo(12);
+        f1.getEmp().setDni(21312313);
+        f1.getEmp().setFecha_ingreso(fecha);
 
         System.out.println("-----------EMPLEADO------------");
         System.out.println("Fecha De Ingreso : " + f1.getEmp().getFecha_ingreso());

@@ -62,7 +62,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         return lista.indexOf(mayorNumero);
     }
-
+    //Punto 2
     public static String mayorNumeroPrimo(List<Integer> lista) {
         int mayorNumeroPrimo = 0;
         for (Integer numero : lista) {
@@ -73,7 +73,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         return "Lista : " + lista + " El Mayor Numero Primo Es " + mayorNumeroPrimo;
     }
-
+    //Punto 3
     public static List<Integer> numerosPrimosRandom(List<Integer> lista) {
         do {
             int aleatorio = (int) (Math.random() * 200 + 100);
@@ -86,7 +86,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
         return lista;
 
     }
-
+    //Punto 4
     public static String finalizadosEnDigito4(List<Integer> lista) {
         String posiciones = "";
         int seRepite = 0;
@@ -99,7 +99,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         return "Hay " + seRepite + " Numeros Finalizados En 4 En Las Posiciones : " + posiciones;
     }
-
+    //Punto 5
     public static String cuantasVecesSeRepiteElMayor(List<Integer> lista) {
         int numeroMayor = 0;
         for (Integer numero : lista) {

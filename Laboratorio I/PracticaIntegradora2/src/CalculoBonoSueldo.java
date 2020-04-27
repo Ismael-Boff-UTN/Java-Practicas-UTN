@@ -19,7 +19,7 @@ public class CalculoBonoSueldo {
         String[][] bonoCalculado = new String[10][4];
 
 //Llamo A Los Metodos
-        cargarDatosBasicosEmpleado(bono);
+        //cargarDatosBasicosEmpleado(bono);
         mostrarArrayDeHabers(bono);
         cargaDeHaberesYDeducciones(bono, bonoCalculado);
 
@@ -82,6 +82,7 @@ del sueldo básico. */
         tabularArray2D(header, 22);
         System.out.println("-----------------------------------------------------------------------------");
         tabularArray2D(bono.getHaberes(), 22);
+
     }
 
     public static void cargaDeHaberesYDeducciones(BonoSueldo bono, String bonoCalculado[][]) {
@@ -177,7 +178,7 @@ otro código y vuelvo a solicitar el ingreso del código.*/
             System.out.println("Ingrese 000 Para Finalizar La Carga!");
             codigo = new Scanner(System.in).nextLine();
             for (int i = 0; i < 10; i++) {
-                
+
             }
 
             //aca reviso si el codigo ya fue ingresado antes
@@ -281,7 +282,7 @@ otro código y vuelvo a solicitar el ingreso del código.*/
         for (int i = 0; i < Array2D.length; i++) {
             for (int j = 0; j < Array2D[0].length; j++) {
                 if (Array2D[i][j] != null) {
-                    String value = String.format("%" + String.valueOf(stringMayor) + "s", Array2D[i][j]);
+                    String value = String.format("%-" + String.valueOf(stringMayor) + "s", Array2D[i][j]);
                     System.out.print(" " + value + " ");
                 }
             }
@@ -291,4 +292,5 @@ otro código y vuelvo a solicitar el ingreso del código.*/
         }
         return false;
     }
+
 }
