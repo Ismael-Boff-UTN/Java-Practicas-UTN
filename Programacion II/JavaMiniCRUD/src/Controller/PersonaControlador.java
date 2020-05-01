@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.PersonaDAO;
 import Model.Persona;
+import View.AgregarPersona;
 import View.EditarPersona;
 import View.ListaPersonas;
 import java.awt.event.ActionEvent;
@@ -19,59 +20,73 @@ public class PersonaControlador implements ActionListener {
 
     private Persona persona;
     private PersonaDAO crud;
-    private ListaPersonas vista;
-    private EditarPersona vistaEditar;
-    DefaultTableModel modelo;
+    private ListaPersonas vistaListaPersonas;
+    private EditarPersona vistaEditarPersona;
+    private AgregarPersona vistaAgregarPersona;
+    private DefaultTableModel modelo;
 
     @SuppressWarnings("LeakingThisInConstructor")
-    public PersonaControlador(Persona persona, PersonaDAO crud, ListaPersonas vista, EditarPersona vistaEditarPersona) {
+    public PersonaControlador(Persona persona, PersonaDAO crud, ListaPersonas vistaListaPersonas, EditarPersona vistaEditarPersona, AgregarPersona vistaAgregarPersona) {
         this.persona = persona;
         this.crud = crud;
-        this.vista = vista;
-        this.vistaEditar = vistaEditarPersona;
-        this.vista.getBtnAgregar().addActionListener(this);
-        this.vista.getBtnEliminar().addActionListener(this);
-        this.vista.getBtnEditar().addActionListener(this);
-        this.vistaEditar.getBtnCancelar().addActionListener(this);
-        this.vistaEditar.getBtnGuardarCambios().addActionListener(this);
+        this.vistaListaPersonas = vistaListaPersonas;
+        this.vistaEditarPersona = vistaEditarPersona;
+        this.vistaAgregarPersona = vistaAgregarPersona;
+        //Vista Principal (Lista)
+        this.vistaListaPersonas.getBtnAgregar().addActionListener(this);
+        this.vistaListaPersonas.getBtnEliminar().addActionListener(this);
+        this.vistaListaPersonas.getBtnEditar().addActionListener(this);
+        //Vista De Edicion
+        this.vistaEditarPersona.getBtnCancelar().addActionListener(this);
+        this.vistaEditarPersona.getBtnGuardarCambios().addActionListener(this);
+        //Vista De Agregar
+        this.vistaAgregarPersona.getBtnAgregar().addActionListener(this);
+        this.vistaAgregarPersona.getBtnCancelar().addActionListener(this);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == vista.getBtnAgregar()) {
-            agregar();
+        if (e.getSource() == vistaListaPersonas.getBtnAgregar()) {
+            vistaAgregarPersona.setVisible(true);
 
         }
 
-        if (e.getSource() == vista.getBtnEliminar()) {
+        if (e.getSource() == vistaListaPersonas.getBtnEliminar()) {
             eliminar();
 
         }
 
-        if (e.getSource() == vista.getBtnEditar()) {
+        if (e.getSource() == vistaListaPersonas.getBtnEditar()) {
             cargarVistaEditar();
         }
 
-        if (e.getSource() == vistaEditar.getBtnCancelar()) {
-            vistaEditar.setVisible(false);
+        if (e.getSource() == vistaEditarPersona.getBtnCancelar()) {
+            vistaEditarPersona.setVisible(false);
         }
-        if (e.getSource() == vistaEditar.getBtnGuardarCambios()) {
+        if (e.getSource() == vistaEditarPersona.getBtnGuardarCambios()) {
             editar();
+        }
+        if(e.getSource() == vistaAgregarPersona.getBtnAgregar()){
+            agregar();
+        }
+        if(e.getSource() == vistaAgregarPersona.getBtnCancelar()){
+            limpiarCampos();
+            vistaAgregarPersona.setVisible(false);
         }
     }
 
     public void limpiarCampos() {
-        vista.getTxtNombre().setText(null);
-        vista.getTxtApellido().setText(null);
-        vista.getTxtDni().setText(null);
-        vista.getTxtCuil().setText(null);
+        vistaAgregarPersona.getTxtNombre().setText(null);
+        vistaAgregarPersona.getTxtApellido().setText(null);
+        vistaAgregarPersona.getTxtDni().setText(null);
+        vistaAgregarPersona.getTxtCuil().setText(null);
     }
 
     public boolean validarCampos() {
-        if (((vista.getTxtNombre().getText().isEmpty() || vista.getTxtApellido().getText().isEmpty()) || vista.getTxtDni().getText().isEmpty())
-                || vista.getTxtCuil().getText().isEmpty()) {
+        if (((vistaAgregarPersona.getTxtNombre().getText().isEmpty() || vistaAgregarPersona.getTxtApellido().getText().isEmpty()) || vistaAgregarPersona.getTxtDni().getText().isEmpty())
+                || vistaAgregarPersona.getTxtCuil().getText().isEmpty()) {
             return true;
         } else {
             return false;
@@ -80,12 +95,13 @@ public class PersonaControlador implements ActionListener {
 
     public void iniciarVista() {
 
-        listInTable(vista.getTblPersonas());
-        vista.setTitle("Lista De Personas");
-        vista.setLocationRelativeTo(null);
-        vista.setVisible(true);
-        vista.setResizable(false);
-        vistaEditar.setLocationRelativeTo(null);
+        listInTable(vistaListaPersonas.getTblPersonas());
+        vistaListaPersonas.setTitle("Lista De Personas");
+        vistaListaPersonas.setLocationRelativeTo(null);
+        vistaListaPersonas.setVisible(true);
+        vistaListaPersonas.setResizable(false);
+        vistaEditarPersona.setLocationRelativeTo(null);
+        vistaAgregarPersona.setLocationRelativeTo(null);
 
     }
 
@@ -93,14 +109,15 @@ public class PersonaControlador implements ActionListener {
         if (validarCampos() == true) {
             JOptionPane.showMessageDialog(null, "Todos Los Campos Deben Estar Completos!");
         } else {
-            persona = new Persona(vista.getTxtNombre().getText(), vista.getTxtApellido().getText(),
-                    Integer.valueOf(vista.getTxtDni().getText()), Long.valueOf(vista.getTxtCuil().getText()));
+            persona = new Persona(vistaAgregarPersona.getTxtNombre().getText(), vistaAgregarPersona.getTxtApellido().getText(),
+                    Integer.valueOf(vistaAgregarPersona.getTxtDni().getText()), Long.valueOf(vistaAgregarPersona.getTxtCuil().getText()));
             if (crud.create(persona) == true) {
 
                 clearTable();//Limpia la tabla
-                listInTable(vista.getTblPersonas());//Vuelve a Listar los datos luego de agregar uno nuevo para dar un efecto de refresh
+                listInTable(vistaListaPersonas.getTblPersonas());//Vuelve a Listar los datos luego de agregar uno nuevo para dar un efecto de refresh
                 JOptionPane.showMessageDialog(null, "Guardado Con Exito!");
                 //limpiarCampos();
+                vistaAgregarPersona.setVisible(false);
 
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR");
@@ -109,15 +126,15 @@ public class PersonaControlador implements ActionListener {
     }
 
     public void eliminar() {
-        int fila = vista.getTblPersonas().getSelectedRow();
+        int fila = vistaListaPersonas.getTblPersonas().getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Debe Seleccione Una Fila!");
         } else {
             if (JOptionPane.showConfirmDialog(null, "Desea Elimnar?", "Seleccione Una Opc.", JOptionPane.YES_NO_OPTION) == 0) {
-                int id = Integer.parseInt((String) vista.getTblPersonas().getValueAt(fila, 0).toString());
+                int id = Integer.parseInt((String) vistaListaPersonas.getTblPersonas().getValueAt(fila, 0).toString());
                 crud.delete(id);
                 clearTable();
-                listInTable(vista.getTblPersonas());
+                listInTable(vistaListaPersonas.getTblPersonas());
                 JOptionPane.showMessageDialog(null, "Eliminado!");
             }
 
@@ -125,33 +142,33 @@ public class PersonaControlador implements ActionListener {
     }
 
     public void cargarVistaEditar() {
-        int fila = vista.getTblPersonas().getSelectedRow();
+        int fila = vistaListaPersonas.getTblPersonas().getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Debe Seleccione Una Fila!");
         } else {
-            vistaEditar.getTxtID().setText(String.valueOf(vista.getTblPersonas().getValueAt(fila, 0).toString()));
-            vistaEditar.getTxtNombre().setText(vista.getTblPersonas().getValueAt(fila, 1).toString());
-            vistaEditar.getTxtApellido().setText(vista.getTblPersonas().getValueAt(fila, 2).toString());
-            vistaEditar.getTxtDNI().setText(String.valueOf(vista.getTblPersonas().getValueAt(fila, 3).toString()));
-            vistaEditar.getTxtCUIT().setText(String.valueOf(vista.getTblPersonas().getValueAt(fila, 4).toString()));
-            vistaEditar.setVisible(true);
+            vistaEditarPersona.getTxtID().setText(String.valueOf(vistaListaPersonas.getTblPersonas().getValueAt(fila, 0).toString()));
+            vistaEditarPersona.getTxtNombre().setText(vistaListaPersonas.getTblPersonas().getValueAt(fila, 1).toString());
+            vistaEditarPersona.getTxtApellido().setText(vistaListaPersonas.getTblPersonas().getValueAt(fila, 2).toString());
+            vistaEditarPersona.getTxtDNI().setText(String.valueOf(vistaListaPersonas.getTblPersonas().getValueAt(fila, 3).toString()));
+            vistaEditarPersona.getTxtCUIT().setText(String.valueOf(vistaListaPersonas.getTblPersonas().getValueAt(fila, 4).toString()));
+            vistaEditarPersona.setVisible(true);
 
         }
     }
 
     public void editar() {
-        int id = Integer.valueOf(vistaEditar.getTxtID().getText());
-        String nombre = vistaEditar.getTxtNombre().getText();
-        String apellido = vistaEditar.getTxtApellido().getText();
-        int dni = Integer.valueOf(vistaEditar.getTxtDNI().getText());
-        long cuit = Long.valueOf(vistaEditar.getTxtCUIT().getText());
+        int id = Integer.valueOf(vistaEditarPersona.getTxtID().getText());
+        String nombre = vistaEditarPersona.getTxtNombre().getText();
+        String apellido = vistaEditarPersona.getTxtApellido().getText();
+        int dni = Integer.valueOf(vistaEditarPersona.getTxtDNI().getText());
+        long cuit = Long.valueOf(vistaEditarPersona.getTxtCUIT().getText());
         persona = new Persona(id, nombre, apellido, dni, cuit);
         crud.update(persona);
         if (crud.update(persona) == true) {
             clearTable();
-            listInTable(vista.getTblPersonas());
+            listInTable(vistaListaPersonas.getTblPersonas());
             JOptionPane.showMessageDialog(null, "Editado Con Exito");
-            vistaEditar.setVisible(false);
+            vistaEditarPersona.setVisible(false);
 
         } else {
             JOptionPane.showMessageDialog(null, "ha Ocurrido Un Error!");
@@ -160,7 +177,7 @@ public class PersonaControlador implements ActionListener {
     }
 
     public void listInTable(JTable table) {
-        modelo = (DefaultTableModel) vista.getTblPersonas().getModel();
+        modelo = (DefaultTableModel) vistaListaPersonas.getTblPersonas().getModel();
         List<Persona> lista = crud.read();
         Object[] per = new Object[5];
         for (int i = 0; i < lista.size(); i++) {
@@ -171,12 +188,12 @@ public class PersonaControlador implements ActionListener {
             per[4] = lista.get(i).getCuit();
             modelo.addRow(per);
         }
-        vista.getTblPersonas().setModel(modelo);
+        vistaListaPersonas.getTblPersonas().setModel(modelo);
 
     }
 
     public void clearTable() {
-        for (int i = 0; i < vista.getTblPersonas().getRowCount(); i++) {
+        for (int i = 0; i < vistaListaPersonas.getTblPersonas().getRowCount(); i++) {
             modelo.removeRow(i);
             i -= 1;
         }

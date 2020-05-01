@@ -41,6 +41,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
             int numero = sc.nextInt();
             array[i] = numero;
         }
+
         tabularArray1D("Los Numeros Ingresados Son : ", array);
         return array;
 
@@ -166,6 +167,72 @@ un arreglo y determinar cuántas veces está repetido el mayor.
         return true; // y si lo es, devuelve true
     }
 
+    public static void metodoBurbuja(int array[]) {
+        //ORDEN ASCENDENTE
+        //iteramos sobre los elementos del arreglo
+        for (int i = 0; i < array.length - 1; i++) {
+            int menor = i;
+
+            //buscamos el menor número
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[menor]) {
+                    menor = j;    //encontramos el menor número
+                }
+            }
+
+            if (i != menor) {
+                //permutamos los valores
+                int aux = array[i];
+                array[i] = array[menor];
+                array[menor] = aux;
+            }
+
+        }
+
+        String cadena = "";
+        for (int i = 0; i < array.length; i++) {
+            if (i > 0) {
+                cadena += " | ";
+            }
+            cadena += (array[i]);
+        }
+        System.out.println("---------------------------------------");
+        System.out.println("Array Ordenado Ascendente BURBUJA :" + "[ " + cadena + " ]");
+        System.out.println("---------------------------------------");
+
+        //ORDEN DESCENDENTE
+        //iteramos sobre los elementos del arreglo
+        for (int i = 0; i < array.length - 1; i++) {
+            int mayor = i;
+
+            //buscamos el mayor número
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] > array[mayor]) {
+                    mayor = j;    //encontramos el mayor número
+                }
+            }
+
+            if (i != mayor) {
+                //permutamos los valores
+                int aux = array[i];
+                array[i] = array[mayor];
+                array[mayor] = aux;
+            }
+
+        }
+
+        String cadena2 = "";
+        for (int i = 0; i < array.length; i++) {
+            if (i > 0) {
+                cadena2 += " | ";
+            }
+            cadena2 += (array[i]);
+        }
+
+        System.out.println("Array Ordenado Descendente BURBUJA :" + "[ " + cadena2 + " ]");
+        System.out.println("---------------------------------------");
+    }
+
     public static void MenuOpciones() {
         boolean salir = false;
 
@@ -202,6 +269,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
                     System.out.println("Has seleccionado la opcion 3");
                     System.out.println("----------------------------------------------------------------------------------------------------");
                     tabularArray1D("Numeros Primos Random Entre 100 y 300: \n", cargarPrimosRandom(arrayNumeros));
+                    metodoBurbuja(arrayNumeros);
                     break;
                 case 4:
                     System.out.println("Has seleccionado la opcion 4");

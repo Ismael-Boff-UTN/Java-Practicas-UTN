@@ -30,8 +30,8 @@ un arreglo y determinar cuántas veces está repetido el mayor.
     public static void main(String[] args) {
         List<Integer> listaNumeros = new ArrayList<>();
 
-        System.out.println("El Mayor Esta En La Posición : " + mayorNumero(cargarLista(listaNumeros)));
-        //System.out.println(mayorNumeroPrimo(cargarLista(listaNumeros)));
+        //System.out.println("El Mayor Esta En La Posición : " + mayorNumero(cargarLista(listaNumeros)));
+        System.out.println(mayorNumeroPrimo(cargarLista(listaNumeros)));
         //System.out.println("Numeros Primos Random Entre 100 y 300 : "+numerosPrimosRandom(listaNumeros));
         //System.out.println(finalizadosEnDigito4(cargarLista(listaNumeros)));
         //System.out.println(cuantasVecesSeRepiteElMayor(cargarLista(listaNumeros)));
@@ -62,6 +62,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         return lista.indexOf(mayorNumero);
     }
+
     //Punto 2
     public static String mayorNumeroPrimo(List<Integer> lista) {
         int mayorNumeroPrimo = 0;
@@ -73,6 +74,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         return "Lista : " + lista + " El Mayor Numero Primo Es " + mayorNumeroPrimo;
     }
+
     //Punto 3
     public static List<Integer> numerosPrimosRandom(List<Integer> lista) {
         do {
@@ -86,6 +88,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
         return lista;
 
     }
+
     //Punto 4
     public static String finalizadosEnDigito4(List<Integer> lista) {
         String posiciones = "";
@@ -99,6 +102,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         return "Hay " + seRepite + " Numeros Finalizados En 4 En Las Posiciones : " + posiciones;
     }
+
     //Punto 5
     public static String cuantasVecesSeRepiteElMayor(List<Integer> lista) {
         int numeroMayor = 0;

@@ -2,6 +2,7 @@
 import Controller.PersonaControlador;
 import DAO.PersonaDAO;
 import Model.Persona;
+import View.AgregarPersona;
 import View.EditarPersona;
 import View.ListaPersonas;
 
@@ -22,8 +23,9 @@ public class main {
         PersonaDAO crud = new PersonaDAO();
         ListaPersonas vista = new ListaPersonas();
         EditarPersona editarPer = new EditarPersona();
+        AgregarPersona agregar = new AgregarPersona();
 
-        PersonaControlador controlador = new PersonaControlador(persona, crud, vista, editarPer);
+        PersonaControlador controlador = new PersonaControlador(persona, crud, vista, editarPer,agregar);
         controlador.iniciarVista();
 
     }
