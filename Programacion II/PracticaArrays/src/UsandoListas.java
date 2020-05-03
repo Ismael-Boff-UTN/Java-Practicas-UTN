@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import mylibrary.metodos;
 
 /**
  *
@@ -30,24 +31,29 @@ un arreglo y determinar cuántas veces está repetido el mayor.
     public static void main(String[] args) {
         List<Integer> listaNumeros = new ArrayList<>();
 
-        //System.out.println("El Mayor Esta En La Posición : " + mayorNumero(cargarLista(listaNumeros)));
-        System.out.println(mayorNumeroPrimo(cargarLista(listaNumeros)));
+        //System.out.println("El Mayor Esta En La Posición : " + mayorNumero(autoCargarLista(listaNumeros)));
+        //System.out.println(mayorNumeroPrimo(autoCargarLista(listaNumeros)));
         //System.out.println("Numeros Primos Random Entre 100 y 300 : "+numerosPrimosRandom(listaNumeros));
         //System.out.println(finalizadosEnDigito4(cargarLista(listaNumeros)));
         //System.out.println(cuantasVecesSeRepiteElMayor(cargarLista(listaNumeros)));
-
     }
 
     public static List<Integer> cargarLista(List<Integer> lista) {
-        int i = 1;
-        System.out.println("Ingrese 10 Valores Enteros!");
-        do {
 
-            System.out.println("Ingrese El " + i + " Valor : ");
+        for (int j = 0; j != 10; j++) {
+            System.out.println("Ingrese El " + (j + 1) + "° Valor : ");
             lista.add(sc.nextInt());
-            i++;
+        }
+        return lista;
+    }
 
-        } while (lista.size() != 10);
+    public static List<Integer> autoCargarLista(List<Integer> lista) {
+        System.out.println("Se Cargaron 10 Numeros Entero Aleatoreos");
+        for (int i = 0; i != 10; i++) {
+            int random = (int) (Math.random() * 20);
+            lista.add(random);
+        }
+        System.out.println("Lista : " + lista);
         return lista;
     }
 
@@ -67,19 +73,19 @@ un arreglo y determinar cuántas veces está repetido el mayor.
     public static String mayorNumeroPrimo(List<Integer> lista) {
         int mayorNumeroPrimo = 0;
         for (Integer numero : lista) {
-            if (esPrimo(numero) == true) {
+            if (metodos.esPrimo(numero) == true) {
                 mayorNumeroPrimo = numero;
             }
         }
 
-        return "Lista : " + lista + " El Mayor Numero Primo Es " + mayorNumeroPrimo;
+        return "El Mayor Numero Primo Es " + mayorNumeroPrimo;
     }
 
     //Punto 3
     public static List<Integer> numerosPrimosRandom(List<Integer> lista) {
         do {
             int aleatorio = (int) (Math.random() * 200 + 100);
-            if (esPrimo(aleatorio) == true) {
+            if (metodos.esPrimo(aleatorio) == true) {
                 lista.add(aleatorio);
             }
 
@@ -119,21 +125,6 @@ un arreglo y determinar cuántas veces está repetido el mayor.
         }
 
         return "El Mayor Numero Es : " + numeroMayor + " Y Esta Repetido " + seRepite + " Vez/Veces";
-    }
-
-    public static boolean esPrimo(int numero) {
-        if (numero == 2) {
-            return true; //si es dos, directamente retorna true, ya que 2 es numero primo
-        }
-        if (numero % 2 == 0) {
-            return false; //se comprueba si es multiplo de dos
-        }
-        for (int i = 3; i * i <= numero; i += 2) { // de no serlo, se comprueba si es divisible entre un numero impar
-            if (numero % i == 0) {
-                return false;
-            }// si no es primo, devuelve false
-        }
-        return true; // y si lo es, devuelve true
     }
 
 }

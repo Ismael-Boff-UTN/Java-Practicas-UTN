@@ -5,9 +5,21 @@ import java.util.Scanner;
 /**
  *
  * @author Ismael Boff Lopez (Skylake)
+ * @version 1.0
+ * @see
+ * <a href = "https://github.com/Ismael-Boff-UTN/Java-Practicas-UTN/tree/master/Laboratorio%20I/MisMetodos"
+ * >GitHub</a>
  */
 public class MisMetodos {
 
+    /**
+     * Método que tabula una matriz o array bidimensional
+     *
+     * @param Array2D El parametro Array2D es el array bidimensional que quieres
+     * tabular
+     * @param stringMayor es el tamaño del mayor string dentro del array, par
+     * generar una mejor tabulacion
+     */
     public static boolean tabularArray2D(String[][] Array2D, int stringMayor) {
 
         for (int i = 0; i < Array2D.length; i++) {
@@ -91,7 +103,7 @@ public class MisMetodos {
             }
 
         }
-        //System.out.println("cantidad columnas llenas : "+cantidadColLlenas);
+
         double promedioColumnas = sumaColumna / cantidadColLlenas;
         return Math.round(promedioColumnas * Math.pow(10, 2)) / Math.pow(10, 2);
 

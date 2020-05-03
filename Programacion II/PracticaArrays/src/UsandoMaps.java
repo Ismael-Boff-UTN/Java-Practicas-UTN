@@ -2,6 +2,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import mylibrary.metodos;
 
 /**
  *
@@ -34,7 +35,7 @@ public class UsandoMaps {
 
         //System.out.println(mayorNumero(cargarMapList(mapaNumeros)));
         //System.out.println(mayorNumeroPrimo(cargarMapList(mapaNumeros)));
-        //System.out.println("Random : " + numerosPrimosRandom(mapaNumeros).toString());
+        System.out.println("Random : " + numerosPrimosRandom(mapaNumeros).toString());
         //System.out.println(finalizadosEnDigito4(autoCargarMapListRandom(mapaNumeros)));
         //System.out.println(vecesQueSeRepiteElMayor(autoCargarMapListRandom(mapaNumeros)));
     }
@@ -65,7 +66,7 @@ public class UsandoMaps {
         for (Map.Entry<Integer, Integer> entry : mapa.entrySet()) {
             Integer key = entry.getKey();
             Integer value = entry.getValue();
-            if (esPrimo(value) == true) {
+            if (metodos.esPrimo(value) == true) {
                 if (value > numeroMayorPrimo) {
                     numeroMayorPrimo = value;
                     keyNumero = key;
@@ -85,7 +86,7 @@ public class UsandoMaps {
             boolean generado = false;
             while (!generado) {
                 int posible = (int) (Math.random() * 200 + 100);
-                if (!mapa.containsValue(posible)) {
+                if (!mapa.containsValue(posible) && metodos.esPrimo(posible)) {
 
                     mapa.put(100 + i, posible);
                     aleatorio = posible;
@@ -175,21 +176,6 @@ public class UsandoMaps {
         System.out.println("Mapa : " + mapa);
         return mapa;
 
-    }
-
-    public static boolean esPrimo(int numero) {
-        if (numero == 2) {
-            return true; //si es dos, directamente retorna true, ya que 2 es numero primo
-        }
-        if (numero % 2 == 0) {
-            return false; //se comprueba si es multiplo de dos
-        }
-        for (int i = 3; i * i <= numero; i += 2) { // de no serlo, se comprueba si es divisible entre un numero impar
-            if (numero % i == 0) {
-                return false;
-            }// si no es primo, devuelve false
-        }
-        return true; // y si lo es, devuelve true
     }
 
 }
