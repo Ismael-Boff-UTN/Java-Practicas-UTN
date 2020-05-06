@@ -77,7 +77,7 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         do {
 
-            int aleatorio = (int) (Math.random() * 200 + 100);
+            int aleatorio = metodos.secureRandom(100, 300);
 
             if (metodos.esPrimo(aleatorio) == true) {
 
@@ -90,6 +90,8 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         return array;
     }
+    
+    
 
     //Punto 4
     public static String finalizaEnDigito4(int array[]) {
@@ -165,6 +167,8 @@ un arreglo y determinar cuántas veces está repetido el mayor.
                     metodos.tabularArray1D("Numeros Primos Random Entre 100 y 300: \n", cargarPrimosRandom(arrayNumeros));
                     metodos.tabularArray1D("Orden ASC", metodos.ordenamientoASCBurbuja(arrayNumeros));
                     metodos.tabularArray1D("Orden DESC", metodos.ordenamientoDESCBurbuja(arrayNumeros));
+                    metodos.tabularArray1D("Ordenado Con Quick : ", metodos.ordenamientoQuicksort(arrayNumeros, 0, arrayNumeros.length - 1));
+
                     break;
                 case 4:
                     System.out.println("Has seleccionado la opcion 4");

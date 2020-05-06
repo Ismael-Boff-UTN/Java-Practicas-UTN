@@ -85,7 +85,7 @@ public class UsandoMaps {
             int aleatorio = -1;
             boolean generado = false;
             while (!generado) {
-                int posible = (int) (Math.random() * 200 + 100);
+                int posible = metodos.secureRandom(100, 300);
                 if (!mapa.containsValue(posible) && metodos.esPrimo(posible)) {
 
                     mapa.put(100 + i, posible);
