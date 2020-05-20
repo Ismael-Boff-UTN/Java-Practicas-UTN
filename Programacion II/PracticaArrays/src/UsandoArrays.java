@@ -30,7 +30,9 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
     public static void main(String[] args) {
 
-        MenuOpciones();
+        //MenuOpciones();
+        cargarPrimosRandom(arrayNumeros);
+        System.out.println("El Mayor Numero Esta En La Posicion : "+mayorNum(arrayNumeros));
 
     }
 
@@ -48,6 +50,23 @@ un arreglo y determinar cuántas veces está repetido el mayor.
         metodos.colorearPosicionArray(pos, array, "rojo");
         System.out.println("El Mayor Numero Es : " + numMayor + " En La Posicion : " + pos);
     }
+    
+     //Punto 1
+    public static int mayorNum(int array[]) {
+
+        int numMayor = 0;
+        int pos = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > numMayor) {
+                numMayor = array[i];
+                pos = i;
+            }
+        }
+        //metodos.colorearPosicionArray(pos, array, "rojo");
+        return pos;
+    }
+    
+    
 
     //Punto 2
     public static void mayorNumeroPrimo(int array[]) {

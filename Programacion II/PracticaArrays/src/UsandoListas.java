@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import mylibrary.metodos;
@@ -91,6 +92,8 @@ un arreglo y determinar cuántas veces está repetido el mayor.
 
         } while (lista.size() != 10);
 
+        
+        
         return lista;
 
     }
